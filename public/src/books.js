@@ -24,10 +24,10 @@ function partitionBooksByBorrowedStatus(books) {
 
 const findAccountById = (accounts, accountId) =>
   accounts.find(({ id }) => id === accountId);
-/* (Helper) Find an account by their ID
-  - locate account with ID entered in argument 
-  - used in getBorrowersForBook()
-*/
+// /* (Helper) Find an account by their ID
+//   - locate account with ID entered in argument
+//   - used in getBorrowersForBook()
+// */
 
 function getBorrowersForBook({ borrows }, accounts) {
   const bookBorrowers = [];

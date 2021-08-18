@@ -1,3 +1,5 @@
+let booksModule = require("./books");
+
 const findAccountById = (accounts, accountId) =>
   accounts.find(({ id }) => id === accountId);
 /* Find an account by their ID
@@ -26,18 +28,12 @@ function getTotalNumberOfBorrows(account, books) {
     appears in the 'borrows' array of each book object in 'books' array 
 */
 
-const findAuthorById = (authors, authorId) => authors.find(({ id }) => id === authorId);
-/* (Helper) Finds an author by their ID
-  - get the author object that matches the authorID in argument
-  - used in getBooksPossessedByAccount()
-*/
-
 function getBooksPossessedByAccount({ id }, books, authors) {
   const borrowedBooks = [];
   books
     .filter(({ borrows }) => borrows[0].id === id && !borrows[0].returned)
     .forEach((book) => {
-      const author = findAuthorById(authors, book.authorId);
+      const author = booksModule.findAuthorById(authors, book.authorId);
       book = {
         ...book,
         author: author,
