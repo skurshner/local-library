@@ -32,7 +32,7 @@ function getBooksPossessedByAccount({ id }, books, authors) {
   const borrowedBooks = [];
   books
     .filter(({ borrows }) => borrows[0].id === id && !borrows[0].returned)
-    .forEach((book) => {
+    .forEach(book => {
       const author = booksModule.findAuthorById(authors, book.authorId);
       book = {
         ...book,

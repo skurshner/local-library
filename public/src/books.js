@@ -1,3 +1,5 @@
+const listLength = 10;
+
 const findAuthorById = (authors, authorId) => authors.find(({ id }) => id === authorId);
 /* Finds an author by their ID
   - gets the author object that matches the authorID in argument
@@ -31,14 +33,14 @@ const findAccountById = (accounts, accountId) =>
 
 function getBorrowersForBook({ borrows }, accounts) {
   const bookBorrowers = [];
-  borrows.forEach((borrower) => {
+  borrows.forEach(borrower => {
     borrower = {
       ...borrower,
       ...findAccountById(accounts, borrower.id),
     };
     bookBorrowers.push(borrower);
   });
-  return bookBorrowers.slice(0, 10);
+  return bookBorrowers.slice(0, listLength);
 }
 /* Get the detailed account info for each borrower of a book
   - create an array to list the book's borrowers 

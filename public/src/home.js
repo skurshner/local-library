@@ -1,7 +1,10 @@
-const getTotalBooksCount = (books) => books.length;
+const genreListLength = 5;
+const bookListLength = 5;
+
+const getTotalBooksCount = books => books.length;
 // Returns the total amount of elements in 'books' array
 
-const getTotalAccountsCount = (accounts) => accounts.length;
+const getTotalAccountsCount = accounts => accounts.length;
 // Returns the total amount of elements in 'accounts' array
 
 function getBooksBorrowedCount(books) {
@@ -34,7 +37,7 @@ function getMostCommonGenres(books) {
 
   return genreList
     .sort((genreA, genreB) => (genreA.count < genreB.count ? 1 : -1))
-    .slice(0, 5);
+    .slice(0, genreListLength);
 }
 /* Displays the 5 most common genres of books
   - uses map() to create a new array of just the genre's of each book object in book array and
@@ -49,7 +52,7 @@ function getMostCommonGenres(books) {
 function getMostPopularBooks(books) {
   return books
     .sort((bookA, bookB) => (bookA.borrows.length < bookB.borrows.length ? 1 : -1))
-    .slice(0, 5)
+    .slice(0, bookListLength)
     .map(({ title, borrows }) => {
       return {
         name: title,
